@@ -1,0 +1,16 @@
+name: Tpa
+api: 3.20.0
+version: 1.0
+main: KurSkyTR\Tpa
+author: EngincanErgunGG
+description: "Oyuncuların birbirlerine ışınlanabilmesi için yapılmış ve kullanışlı bir eklenti."
+
+commands:
+  tpa:
+    description: "Herhangi bir oyuncuya ışınlanma isteği gönderir."
+  tpak:
+    description: "Gelen ışınlanma isteğini kabul eder."
+  tpar:
+    description: "Gelen ışınlanma isteğini red eder."
+  tpaistek:
+    description: "Işınlanma isteklerini yönetir."
