@@ -34,8 +34,8 @@ class Tpa extends PluginBase implements Listener
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         self::$cfg = new Config($this->getDataFolder() . "blockedworlds.yml", Config::YAML, [
             "BlockedWorlds" => [
-                "Nether",
-                "End"
+                "nether",
+                "end"
             ]
         ]);
     }
