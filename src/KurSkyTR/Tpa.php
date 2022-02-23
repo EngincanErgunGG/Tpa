@@ -10,11 +10,10 @@ use pocketmine\{
     plugin\PluginBase,
     command\CommandSender,
     command\Command,
-    utils\MainLogger as M,
     utils\Config,
     event\Listener,
     event\player\PlayerJoinEvent,
-    Player
+    player\Player
 };
 
 use FormAPI\{
@@ -27,9 +26,9 @@ class Tpa extends PluginBase implements Listener
     
     public static $config = null, $cfg = null;
     
-    public function onEnable()
+    public function onEnable(): void
     {
-        M::getLogger()->info("Eklenti aktif edildi.");
+        $this->getLogger()->info("Eklenti aktif edildi.");
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         self::$cfg = new Config($this->getDataFolder() . "blockedworlds.yml", Config::YAML, [
             "BlockedWorlds" => [
@@ -39,7 +38,7 @@ class Tpa extends PluginBase implements Listener
         ]);
     }
     
-    public function onJoin(PlayerJoinEvent $event)
+    public function onJoin(PlayerJoinEvent $event): void
     {
         $e = $event->getPlayer();
         self::$config = new Config($this->getDataFolder() . "config.yml", Config::YAML, [
@@ -162,7 +161,7 @@ class Tpa extends PluginBase implements Listener
         $f->sendToPlayer($e);
     }
     
-    public function tpaRequestCheck($e)
+    public function tpaRequestCheck($e): string
     {
         self::$config->reload();
         if (self::$config->get($e->getName()) == true)
